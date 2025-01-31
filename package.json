@@ -1,0 +1,15 @@
+{
+  "name": "Sauce_demo_suite",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+  },
+  "keywords": [],
+  "author": "Oleksandr_Voitiuk",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.50.0",
+    "@types/node": "^22.12.0"
+  }
+}
