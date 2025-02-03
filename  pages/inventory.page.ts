@@ -3,11 +3,8 @@ import { BasePage } from "./base.page";
 
 export class InventoryPage extends BasePage {
     // InventoryPage locators
-    public cartIcon: Locator = this._page.locator("//a[@data-test='shopping-cart-link']");
     public productsBlock: Locator = this._page.locator("//span[@data-test='title']");
-    public burgerMenu: Locator = this._page.locator('#react-burger-menu-btn');
     public logoutButtonInBurgerMenu: Locator = this._page.locator('#logout_sidebar_link');
-    public burgerMenuList: Locator = this._page.locator("//a[@class='bm-item menu-item']");
     public backpackAddToChartButton: Locator = this._page.locator('#add-to-cart-sauce-labs-backpack');
     public itemText: Locator = this._page.locator("//div[@data-test='inventory-item-name']");
     public shoppingCartBadge: Locator = this._page.locator("//span[@data-test='shopping-cart-badge']");
@@ -18,18 +15,7 @@ export class InventoryPage extends BasePage {
     public itemDesc: Locator = this._page.locator("//div[@data-test='inventory-item-desc']");
 
 
-    // InventoryPage locators
-    public async clickOnCartIcon(): Promise<void>{
-        await this.cartIcon.click()
-    }
-
-    public async openBurgerMenu(): Promise<void>{
-        await this.burgerMenu.click()
-    }
-
-    public async logoutFromBurgerMenu(): Promise<void>{
-        await this.logoutButtonInBurgerMenu.click()
-    }
+    // InventoryPage methods
 
     public async addToCartBackpack(): Promise<void>{
         await this.backpackAddToChartButton.click()

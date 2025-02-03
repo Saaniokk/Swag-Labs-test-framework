@@ -14,11 +14,11 @@ test.describe("Checkout", () => {
     expect(currentUrl).toBe(Urls.Inventory);
   });
 
-  test("Valid Checkout", async ({ inventoryPage, cartPage, checkoutPage }) => {
+  test("Valid Checkout", async ({ inventoryPage, cartPage, checkoutPage, faker }) => {
     test.info().annotations.push({ type: "TestCaseID", description: "8" });
-    const lastName = "Oqasifjv";
-    const firstName = "Manuel";
-    const zipCode = "44601";
+    const lastName = faker.person.lastName();
+    const firstName = faker.person.firstName();
+    const zipCode = faker.location.zipCode();
     // Add backpack to cart and check values
     await inventoryPage.addToCartBackpack();
     const cartItemsValue = await inventoryPage.shoppingCartBadge.innerText();
@@ -26,7 +26,7 @@ test.describe("Checkout", () => {
     // await expect.soft(cartPage.cartIcon).toHaveText("1");
     const addedProductName = await inventoryPage.itemText.nth(0).innerText();
     const addedProductPrice = await inventoryPage.itemPrice.nth(0).innerText();
-    await inventoryPage.clickOnCartIcon();
+    await inventoryPage.getHeader().clickOnCartIcon();
     const displayedProductName = await cartPage.itemName.nth(0).innerText();
     expect(addedProductName).toEqual(displayedProductName);
     // Go to checkout and verify values
@@ -73,7 +73,7 @@ test.describe("Checkout", () => {
     "Checkout without products",
     async ({ inventoryPage, cartPage }) => {
       test.info().annotations.push({ type: "TestCaseID", description: "9" });
-      await inventoryPage.clickOnCartIcon();
+      await inventoryPage.getHeader().clickOnCartIcon();
       expect.soft(cartPage.yourChartBlock).toBeVisible();
       expect(cartPage.itemQuantity).toBeHidden();
       await cartPage.clickCheckoutButton();

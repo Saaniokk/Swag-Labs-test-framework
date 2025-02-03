@@ -1,4 +1,5 @@
 import { test as baseTest } from "@playwright/test";
+import { Faker, faker as baseFaker } from '@faker-js/faker';
 
 import { BasePage } from "../ pages/base.page";
 import { LoginPage } from "../ pages/login.page";
@@ -12,9 +13,15 @@ export type BaseTestFixture = {
   inventoryPage: InventoryPage;
   cartPage: CartPage;
   checkoutPage: CheckoutPage
+  faker: Faker;
+
 };
 
 export const test = baseTest.extend<BaseTestFixture>({
+  faker:
+    async ({ browser: _ }, use: (r: Faker) => Promise<void>): Promise<void> => {
+      await use(baseFaker);
+    },
   basePage: [
     async ({ page }, use): Promise<void> => {
       await use(new BasePage(page));

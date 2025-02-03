@@ -4,17 +4,14 @@ import { Locator, Page } from '@playwright/test';
 
 export class Footer {
   protected readonly _page: Page;
-  public readonly isMobile: boolean;
 
   //Locators
   public readonly twitterLink: Locator;
   public readonly facebookLink: Locator;
   public readonly linkedinLink: Locator;
   
-  public constructor(_page: Page, isMobile: boolean = false) {
+  public constructor(_page: Page) {
     this._page = _page;
-    this.isMobile = isMobile;
-   
   }
 
   public async selectFooterLink(network: string): Promise<void> {

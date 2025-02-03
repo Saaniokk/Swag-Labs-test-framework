@@ -27,7 +27,7 @@ test.describe("Login Checks", () => {
     // Validate if proper url opened after click
     const currentUrl = await inventoryPage.url();
     expect(currentUrl).toBe(Urls.Inventory);
-    await expect.soft(inventoryPage.cartIcon).toBeVisible();
+    await expect.soft(inventoryPage.getHeader().cartIcon).toBeVisible();
     await expect(inventoryPage.productsBlock).toBeVisible();
   });
 
@@ -99,9 +99,9 @@ test.describe("Logout", () => {
   test("Logout", async ({ loginPage, inventoryPage }) => {
     test.info().annotations.push({ type: "TestCaseID", description: "4" });
     // Verify menu contains 4 elements and complete logout
-    await inventoryPage.openBurgerMenu();
-    await expect.soft(inventoryPage.burgerMenuList).toHaveCount(4);
-    await inventoryPage.logoutFromBurgerMenu();
+    await inventoryPage.getHeader().openBurgerMenu();
+    await expect.soft(inventoryPage.getHeader().burgerMenuList).toHaveCount(4);
+    await inventoryPage.getHeader().logoutFromBurgerMenu();
     // Verify user redirected to Login page
     const currentUrl = await inventoryPage.url();
     expect(currentUrl).toBe(Urls.MainPage);

@@ -27,9 +27,9 @@ test.describe("Cart Checks", () => {
     const cartItemsValue = await inventoryPage.shoppingCartBadge.innerText();
     expect(cartItemsValue).toEqual('1');
     // Validate burger menu items and complete log out 
-    await inventoryPage.openBurgerMenu();
-    await expect.soft(inventoryPage.burgerMenuList).toHaveCount(4);
-    await inventoryPage.logoutFromBurgerMenu();
+    await inventoryPage.getHeader().openBurgerMenu();
+    await expect.soft(inventoryPage.getHeader().burgerMenuList).toHaveCount(4);
+    await inventoryPage.getHeader().logoutFromBurgerMenu();
     const currentUrl = await inventoryPage.url();
     expect(currentUrl).toEqual(Urls.MainPage);
     await expect.soft(loginPage.UsernameField).toHaveValue("");
@@ -37,7 +37,7 @@ test.describe("Cart Checks", () => {
     // Log in and check if cart contains the same item
     await loginPage.fillLoginForm(properUsername, properPassword);
     await loginPage.clickLoginButton();
-    await inventoryPage.clickOnCartIcon();
+    await inventoryPage.getHeader().clickOnCartIcon();
     const backpackNameInCart = await cartPage.backpackText.nth(0).innerText();
     expect(backpackName).toEqual(backpackNameInCart);
     const cartItemsValueUpdated = await inventoryPage.shoppingCartBadge.innerText();

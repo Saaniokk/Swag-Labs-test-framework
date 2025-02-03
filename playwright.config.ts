@@ -43,12 +43,12 @@ export default defineConfig({
   projects: [
     {
       name: 'Desktop chromium',
-      use: { ...devices['Desktop Chrome'], headless: true, isMobile: false },
+      use: { ...devices['Desktop Chrome'], headless: true },
     },
 
     {
       name: 'Iphone 15 Pro Max',
-      use: { ...devices['Iphone 15 Pro Max'], headless: true, browserName: 'chromium', isMobile: true },
+      use: { ...devices['Iphone 15 Pro Max'], headless: true, browserName: 'chromium' },
     },
 
 

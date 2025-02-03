@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "execute": "npx playwright test",
+    "show-last-report": "npx playwright show-report"
   },
   "keywords": [],
   "author": "Oleksandr_Voitiuk",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@faker-js/faker": "^9.2.0",
     "@playwright/test": "^1.50.0",
     "@types/node": "^22.12.0"
   }
