@@ -1,5 +1,5 @@
 export enum Urls{
-    MainPage = 'https://www.saucedemo.com/',
+    LoginPage = 'https://www.saucedemo.com/',
     Inventory = 'https://www.saucedemo.com/inventory.html',
     CheckoutTwo = 'https://www.saucedemo.com/checkout-step-two.html',
     CheckoutComplete = 'https://www.saucedemo.com/checkout-complete.html',

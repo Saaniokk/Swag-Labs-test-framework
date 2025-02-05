@@ -1,11 +1,12 @@
 import { test as baseTest } from "@playwright/test";
 import { Faker, faker as baseFaker } from '@faker-js/faker';
 
-import { BasePage } from "../ pages/base.page";
-import { LoginPage } from "../ pages/login.page";
-import { InventoryPage } from "../ pages/inventory.page";
-import { CartPage } from "../ pages/cart.page";
-import { CheckoutPage } from "../ pages/checkout.page";
+import { BasePage } from "../../ pages/base.page";
+import { LoginPage } from "../../ pages/login.page";
+import { InventoryPage } from "../../ pages/inventory.page";
+import { CartPage } from "../../ pages/cart.page";
+import { CheckoutPage } from "../../ pages/checkout.page";
+
 
 export type BaseTestFixture = {
   basePage: BasePage;
